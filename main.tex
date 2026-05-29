@@ -1,0 +1,179 @@
+% Template for BU ECE RPC written report
+\documentclass[12pt,onecolumn,letterpaper]{IEEEtran}  % As per the instructions, use 12pt Times New Roman font
+\usepackage[margin=1in]{geometry}  % As per the instructions, use 1-inch margins
+\usepackage{titling}  % For customizing the title page
+\usepackage{hyperref}  % For fancy hyperlinks in the document
+\usepackage{amsmath, amsfonts, amssymb}  % For math stuff
+\usepackage{algorithm}  % For algorithms
+\usepackage{algpseudocode}  % For algorithmic environment
+\usepackage{graphicx}  % For including images
+\usepackage[caption=false,font=footnotesize]{subfig}  % For pretty subfigures
+\usepackage{mwe}  % Only used for placeholder images, feel free to remove this package
+\usepackage{lipsum}  % Only used for placeholder text, feel free to remove this package
+
+
+% Define theorem-like environments
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{theorem}{Theorem}
+
+% Define customized math operators
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+
+% Begin
+\begin{document}
+
+% Title page
+\begin{titlepage}
+    \centering
+    
+    % Title
+    {\textbf{TITLE (not identical to paper title)}}
+    
+    \vspace{5\baselineskip}
+    
+    % Student name
+    {Student name}
+    
+    \vspace{5\baselineskip}
+    
+    % Advisor
+    {Advisor}
+    
+    \vspace{5\baselineskip}
+
+    % Abstract
+    \begin{abstract}
+        \lipsum[1]
+    \end{abstract}
+    
+    \vfill
+    
+    % Full citation of the main paper, IEEE citation style, 
+    \begin{minipage}{\textwidth}
+        \footnotesize
+        Full citation of the main paper, IEEE citation style. 
+    \end{minipage}
+    
+\end{titlepage}
+
+
+% Section I
+\section{Introduction}
+The following is an example of an equation.
+\begin{equation}
+    E = mc^2
+\end{equation}
+The following is an example of a multi-line equation.
+\begin{align}
+    f(x) & = ax^2 + bx + c \\
+    & = a(x - r_1)(x - r_2)
+\end{align}
+You can refer to algorithms (see Algorithm~\ref{alg1}), definitions (see Definition~\ref{def1}), examples (see Example~\ref{eg1}), propositions (see Proposition~\ref{prop1}), remarks (see Remark~\ref{rem1}), theorems (see Theorem~\ref{thm1}), figures (see Fig.~\ref{fig1}), subfigures (see Fig.~\ref{fig1a}, \ref{fig1b}), and tables (see Table~\ref{tab1}). 
+You can cite papers from your references \cite{boyd_distributed_2010}.
+
+You can insert links, e.g., \href{https://www.google.com}{https://www.google.com}.
+You can also insert footnotes\footnote{This is an example of a footnote.}.
+
+
+% Section II
+\section{Method}
+\lipsum[3-5]
+
+
+% Section III
+\section{Critique}
+\lipsum[6-8]
+
+
+% Section IV
+\section{Future Work}
+\lipsum[9-12]
+
+
+% Appendix
+\newpage
+\appendices
+\section{Figures and Tables}
+
+% Algorithm
+\begin{algorithm}
+    \caption{This is an example of an algorithm.} \label{alg1}
+    \begin{algorithmic}[1]
+        \Procedure{Max}{$a, b$}
+            \If{$a > b$}
+                \State \Return $a$
+            \Else
+                \State \Return $b$
+            \EndIf
+        \EndProcedure
+    \end{algorithmic}
+\end{algorithm}
+
+% Definition
+\begin{definition}[A definition] \label{def1}
+    This is an example of a definition.
+\end{definition}
+
+% Example
+\begin{example}[An example] \label{eg1}
+    This is an example of an example.
+\end{example}
+
+% Proposition
+\begin{proposition}[A proposition] \label{prop1}
+    This is an example of a proposition.
+\end{proposition}
+
+% Remark
+\begin{remark}[A remark] \label{rem1}
+    This is an example of a remark.
+\end{remark}
+
+% Theorem
+\begin{theorem}[A theorem] \label{thm1}
+    This is an example of a theorem.
+\end{theorem}
+
+% Proof
+\begin{IEEEproof}
+    This is an example of a proof.
+\end{IEEEproof}
+
+% Figure
+\begin{figure}[ht!]
+    \centering
+    \subfloat[]{\includegraphics[width=0.45\linewidth]{example-image}\label{fig1a}}
+    \hfil
+    \subfloat[]{\includegraphics[width=0.45\linewidth]{example-image}\label{fig1b}}
+    \caption{This is an example of a figure. (a) This is the first subfigure. (b) This is the second subfigure.}
+    \label{fig1}
+\end{figure}
+
+% Table
+\begin{table}[ht!]
+    \centering
+    \caption{This is an example of a table.}
+    \begin{tabular}{ccc}
+        \hline
+        $a$ & $b$ & $\max\{a, b\}$ \\
+        \hline
+        0 & 0 & 0 \\
+        0 & 1 & 1 \\
+        1 & 1 & 1 \\
+        \hline
+    \end{tabular}
+    \label{tab1}
+\end{table}
+
+
+% Reference
+\newpage
+\bibliographystyle{IEEEtran}
+\bibliography{refs}  % make sure your references are in `refs.bib`
+
+\end{document}
