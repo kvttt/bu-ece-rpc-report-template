@@ -1,0 +1,38 @@
+name: Build PDF
+
+on:
+  push:
+    branches:
+      - "**"
+    paths-ignore:
+      - "main.pdf"
+
+permissions:
+  contents: write
+
+jobs:
+  build_pdf:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: main.tex
+
+      - name: Commit PDF
+        run: |
+          if [[ -n "$(git status --porcelain main.pdf)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add main.pdf
+            git commit -m "Build PDF [skip ci]"
+            git push
+          else
+            echo "No PDF changes to commit."
+          fi
